@@ -9,7 +9,7 @@ if memo_type == 1
     file_name = gets.chomp
 
     puts "メモの内容を記入してください。"
-    input_memo = STDIN.gets
+    input_memo = STDIN.read
     memo = input_memo.chomp
 
     CSV.open("#{file_name}.csv","w") do |csv|
@@ -20,10 +20,11 @@ elsif memo_type == 2
    file_name = gets.chomp
 
    puts "メモの内容を編集してください。"
-   input_memo = STDIN.gets
+   input_memo = STDIN.read
    memo = input_memo.chomp
 
-   CSV.open("#{file_name}.csv","a") do |csv|
+   # CSV.open("#{file_name}.csv","a") do |csv|
+   CSV.open("#{file_name}.csv","w") do |csv|
    csv.puts ["#{memo}"]
 end
 else
